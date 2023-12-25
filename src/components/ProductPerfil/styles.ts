@@ -82,7 +82,6 @@ export const Modal = styled.div`
 `
 
 export const ModalContent = styled.div`
-  max-width: 1336px;
   position: relative;
   z-index: 1;
 
