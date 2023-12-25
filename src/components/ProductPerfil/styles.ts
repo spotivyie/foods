@@ -110,8 +110,8 @@ export const Cart = styled.div`
 export const Cards = styled.div`
   width: 1024px;
   height: 344px;
-  background-color: ${cores.rosa};
   display: flex;
+  background-color: ${cores.rosa};
   color: ${cores.branco};
   padding: 32px;
 
