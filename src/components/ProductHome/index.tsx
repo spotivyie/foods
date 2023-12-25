@@ -7,19 +7,19 @@ import {
   Espaco,
   SaibaMais,
   EstrelaNota,
-  HeaderBar
+  HeaderBar,
+  Links
 } from './styles'
-
-import { Link } from 'react-router-dom'
 
 type Props = {
   description: string
   title: string
   nota: string
-  estrela: string
-  system: string
-  infos: string[]
+  system: boolean
+  infos: string
   image: string
+  id: number
+  estrela: string
 }
 
 const Product = ({
@@ -28,34 +28,42 @@ const Product = ({
   infos,
   system,
   title,
-  estrela,
-  nota
-}: Props) => (
-  <Card>
-    <img src={image} alt={title} />
-    <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
-    </Infos>
-    <Espaco>
-      <HeaderBar>
-        <div>
-          <Titulo>{title}</Titulo>
-        </div>
-        <EstrelaNota>
-          <div>{nota}</div>
-          <img src={estrela} alt={estrela} />
-        </EstrelaNota>
-      </HeaderBar>
-      <Descricao>{description}</Descricao>
-      <SaibaMais>
-        <Tag>
-          <Link to="/perfil">{system}</Link>
-        </Tag>
-      </SaibaMais>
-    </Espaco>
-  </Card>
-)
+  nota,
+  id,
+  estrela
+}: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 250) {
+      return descricao.slice(0, 247) + '...'
+    }
+    return descricao
+  }
+
+  return (
+    <Card>
+      <img src={image} alt={title} />
+      <Infos>
+        <Tag>{infos}</Tag>
+      </Infos>
+      <Espaco>
+        <HeaderBar>
+          <div>
+            <Titulo>{title}</Titulo>
+          </div>
+          <EstrelaNota>
+            <div>{nota}</div>
+            <img src={estrela} alt={estrela} />
+          </EstrelaNota>
+        </HeaderBar>
+        <Descricao>{getDescricao(description)}</Descricao>
+        <SaibaMais>
+          <Tag>
+            <Links to={`/perfil/${id}`}>{system}Saiba mais</Links>
+          </Tag>
+        </SaibaMais>
+      </Espaco>
+    </Card>
+  )
+}
 
 export default Product

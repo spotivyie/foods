@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
+import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   background-color: ${cores.branco};
@@ -7,6 +8,14 @@ export const Card = styled.div`
   display: inline-block;
   color: ${cores.rosa};
   border: 1px solid ${cores.rosa};
+  text-decoration: none;
+
+  img {
+    width: 100%;
+    height: 350px;
+    display: block;
+    object-fit: cover;
+  }
 `
 
 export const Titulo = styled.h3`
@@ -44,6 +53,20 @@ export const Tag = styled.div`
   }
 `
 
+export const Button = styled.button`
+  background-color: ${cores.rosa};
+  color: ${cores.rosaClaro};
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 8px;
+  padding: 4px 6px;
+
+  a {
+    color: ${cores.branco};
+    text-decoration: none;
+  }
+`
+
 export const HeaderBar = styled.header`
   display: flex;
   align-items: center;
@@ -57,6 +80,8 @@ export const EstrelaNota = styled.a`
 
   img {
     margin-left: 8px;
+    height: 20px;
+    width: 20px;
   }
 `
 
@@ -66,4 +91,8 @@ export const Espaco = styled.section`
 
 export const SaibaMais = styled.section`
   padding-bottom: 8px;
+`
+
+export const Links = styled(Link)`
+  color: ${cores.rosaClaro};
 `

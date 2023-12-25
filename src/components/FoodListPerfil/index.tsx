@@ -1,24 +1,25 @@
-import Menu from '../../ModelsPerfil/index'
+import { CardapioItem } from '../../page/Perfil'
 import Product from '../ProductPerfil'
 
 import { List, Container } from './styles'
 
 export type Props = {
   title: string
-  menus: Menu[]
+  cardapio: CardapioItem[]
 }
 
-const ProductListPerfil = ({ menus }: Props) => (
+export const ProductListPerfil = ({ cardapio }: Props) => (
   <Container>
     <div className="container">
       <List>
-        {menus.map((food) => (
+        {cardapio.map((food) => (
           <Product
             key={food.id}
-            description={food.description}
-            image={food.image}
-            system={food.system}
-            title={food.title}
+            description={food.descricao}
+            image={food.foto}
+            system={food.porcao}
+            title={food.nome}
+            preco={food.preco}
           />
         ))}
       </List>

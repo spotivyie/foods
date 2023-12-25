@@ -1,28 +1,30 @@
-import Menu from '../../ModelsHome/index'
+import { Menu } from '../../page/Perfil'
 import Product from '../ProductHome'
 
 import { List, Container } from './styles'
 
 export type Props = {
-  title: string
+  estrela: string
   menus: Menu[]
 }
 
-const ProductList = ({ menus }: Props) => (
+const ProductList = ({ menus, estrela }: Props) => (
   <Container>
     <div className="container">
       <List>
         {menus.map((food) => (
-          <Product
-            key={food.id}
-            description={food.description}
-            estrela={food.estrela}
-            nota={food.nota}
-            image={food.image}
-            infos={food.infos}
-            system={food.system}
-            title={food.title}
-          />
+          <li key={food.id}>
+            <Product
+              id={food.id}
+              estrela={estrela}
+              title={food.titulo}
+              description={food.descricao}
+              nota={food.avaliacao}
+              image={food.capa}
+              infos={food.tipo}
+              system={food.destacado}
+            />
+          </li>
         ))}
       </List>
     </div>
