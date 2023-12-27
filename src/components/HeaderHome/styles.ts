@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -23,4 +23,8 @@ export const Titulo = styled.h2`
   max-width: 600px;
   color: ${cores.rosa};
   padding-top: 144px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 24px;
+  }
 `

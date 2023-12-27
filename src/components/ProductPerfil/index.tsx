@@ -9,20 +9,27 @@ import {
   ModalContent,
   Modal,
   Cart,
-  Imagem
+  Imagem,
+  Image
 } from './styles'
 
 import close from '../../assets/images/close.png'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
+import { CardapioItem } from '../../page/Perfil'
 
-type Props = {
-  description: string
-  title: string
-  system: string
-  image: string
-  preco?: number
+export type Props = {
+  menu: CardapioItem
 }
 
-const ProductPerfil = ({ description, image, system, title, preco }: Props) => {
+const ProductPerfil = ({ menu }: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
+  }
+
   const [modalAberto, setModalEstaAberto] = useState(false)
   const getDescricao = (descricao: string) => {
     if (descricao.length > 250) {
@@ -34,11 +41,11 @@ const ProductPerfil = ({ description, image, system, title, preco }: Props) => {
   return (
     <>
       <Card>
-        <Imagem src={image} alt={title} />
+        <Imagem src={menu.foto} alt={menu.nome} />
         <div>
-          <Titulo>{title}</Titulo>
+          <Titulo>{menu.nome}</Titulo>
         </div>
-        <Descricao>{getDescricao(description)}</Descricao>
+        <Descricao>{getDescricao(menu.descricao)}</Descricao>
         <SaibaMais>
           <Tag onClick={() => setModalEstaAberto(true)}>Mais detalhes</Tag>
         </SaibaMais>
@@ -53,12 +60,16 @@ const ProductPerfil = ({ description, image, system, title, preco }: Props) => {
                 alt="fechar"
               />
             </header>
-            <img src={image} alt={title} />
+            <Image>
+              <img src={menu.foto} alt={menu.nome} />
+            </Image>
             <div>
-              <h4>{title}</h4>
-              <p>{description}</p>
-              <p>{system}</p>
-              <Cart>Adicionar ao carrinho - R$ {preco}</Cart>
+              <h4>{menu.nome}</h4>
+              <p>{menu.descricao}</p>
+              <p>{menu.porcao}</p>
+              <Cart onClick={addToCart}>
+                Adicionar ao carrinho - R$ {menu.preco}
+              </Cart>
             </div>
           </Cards>
         </ModalContent>

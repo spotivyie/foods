@@ -77,6 +77,7 @@ export const EstrelaNota = styled.a`
   display: flex;
   align-items: center;
   font-weight: bold;
+  margin-top: 8px;
 
   img {
     margin-left: 8px;

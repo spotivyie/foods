@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <>
       <PerfilList image={foods.capa} infos={foods.tipo} title={foods.titulo} />
-      <FoodList title="Menu" cardapio={foods.cardapio} />
+      <FoodList cardapio={foods.cardapio} />
     </>
   )
 }

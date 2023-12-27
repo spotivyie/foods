@@ -1,7 +1,7 @@
 import {
   Imagem,
   Images,
-  LinkCart,
+  CartButton,
   HeaderBar,
   Links
 } from '../HeaderList/styles'
@@ -9,6 +9,9 @@ import {
 import bannerImg from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo.png'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 type Props = {
   image: string
@@ -17,6 +20,13 @@ type Props = {
 }
 
 const HeaderList = ({ image, infos, title }: Props) => {
+  const { items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch()
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
   return (
     <>
       <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
@@ -26,7 +36,9 @@ const HeaderList = ({ image, infos, title }: Props) => {
             <Link to="/">
               <img src={logo} alt="efood" />
             </Link>
-            <LinkCart>0 produto(s) no carrinho</LinkCart>
+            <CartButton onClick={openCart}>
+              {items.length} produto(s) no carrinho
+            </CartButton>
           </div>
         </HeaderBar>
       </Imagem>

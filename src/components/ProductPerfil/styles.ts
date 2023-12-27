@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${cores.rosa};
@@ -16,6 +16,10 @@ export const Imagem = styled.img`
   height: 168px;
   display: block;
   object-fit: cover;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 100%;
+  }
 `
 
 export const Titulo = styled.h3`
@@ -100,10 +104,16 @@ export const Cart = styled.div`
   color: ${cores.rosa};
   position: relative;
   display: inline-block;
+  border: none;
 
   a {
     text-decoration: none;
     font-size: 14px;
+  }
+
+  @media (max-width: ${breakpoints.android}) {
+    text-align: center;
+    display: block;
   }
 `
 
@@ -118,7 +128,6 @@ export const Cards = styled.div`
   img {
     padding-right: 24px;
     width: 100%;
-    display: block;
     align-items: center;
   }
 
@@ -138,5 +147,46 @@ export const Cards = styled.div`
     padding-bottom: 16px;
     line-height: 22px;
     font-weight: 400;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 100%;
+    text-align: justify;
+  }
+
+  @media (max-width: ${breakpoints.android}) {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: justify;
+
+    h4 {
+      padding-top: 8px;
+    }
+
+    img {
+      padding-right: 24px;
+    }
+
+    p {
+      line-height: 22px;
+    }
+  }
+`
+
+export const Image = styled.div`
+  > img {
+    height: 280px;
+    width: 280px;
+    display: flex;
+    object-fit: cover;
+  }
+
+  @media (max-width: ${breakpoints.android}) {
+    > img {
+      padding: 0;
+      width: 100%;
+      display: block;
+      position: relative;
   }
 `
