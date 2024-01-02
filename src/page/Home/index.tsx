@@ -1,4 +1,4 @@
-import { Menu } from '../Perfil'
+import { Menu } from '../../types'
 import { useEffect, useState } from 'react'
 
 import Header from '../../components/HeaderHome'

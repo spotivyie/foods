@@ -1,17 +1,13 @@
-import {
-  Imagem,
-  Images,
-  CartButton,
-  HeaderBar,
-  Links
-} from '../HeaderList/styles'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 import bannerImg from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo.png'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { open } from '../../store/reducers/cart'
-import { RootReducer } from '../../store'
+
+import * as S from '../HeaderList/styles'
 
 type Props = {
   image: string
@@ -29,25 +25,25 @@ const HeaderList = ({ image, infos, title }: Props) => {
 
   return (
     <>
-      <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
-        <HeaderBar>
+      <S.Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
+        <S.HeaderBar>
           <div>
-            <Links>Restaurantes</Links>
+            <S.Links>Restaurantes</S.Links>
             <Link to="/">
               <img src={logo} alt="efood" />
             </Link>
-            <CartButton onClick={openCart}>
+            <S.CartButton onClick={openCart}>
               {items.length} produto(s) no carrinho
-            </CartButton>
+            </S.CartButton>
           </div>
-        </HeaderBar>
-      </Imagem>
-      <Images style={{ backgroundImage: `url(${image})` }}>
+        </S.HeaderBar>
+      </S.Imagem>
+      <S.Images style={{ backgroundImage: `url(${image})` }}>
         <div className="container">
           <h3>{infos}</h3>
           <h2>{title}</h2>
         </div>
-      </Images>
+      </S.Images>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { CardapioItem } from '../../page/Perfil'
+import { CardapioItem } from '../../types'
 import Product from '../ProductPerfil'
 
 import { List, Container } from './styles'

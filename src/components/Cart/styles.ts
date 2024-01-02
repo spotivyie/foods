@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { cores } from '../../styles'
 
 import lixo from '../../assets/images/lixo.png'
@@ -39,6 +38,13 @@ export const Sidebar = styled.aside`
   button {
     max-width: 100%;
     width: 100%;
+  }
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${cores.branco};
+    text-align: center;
   }
 `
 
@@ -89,13 +95,14 @@ export const CartItem = styled.li`
 
   button {
     background-image: url(${lixo});
+    background-color: ${cores.rosaClaro};
     width: 16px;
     height: 16px;
     border: none;
-    background-color: ${cores.rosaClaro};
     position: absolute;
     top: 76px;
     right: 8px;
+    cursor: pointer;
   }
 `
 
@@ -107,4 +114,8 @@ export const Button = styled.button`
   font-weight: bold;
   padding: 4px 16px;
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

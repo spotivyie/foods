@@ -1,29 +1,11 @@
-import PerfilList from '../../components/HeaderList'
-
 import { useEffect, useState } from 'react'
-import FoodList from '../../components/FoodListPerfil'
 import { useParams } from 'react-router-dom'
 
-export interface CardapioItem {
-  foto: string
-  preco?: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
+import PerfilList from '../../components/HeaderList'
+import FoodList from '../../components/FoodListPerfil'
+import { Menu } from '../../types'
 
-export type Menu = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: string
-  descricao: string
-  capa: string
-  system: string
-  cardapio: CardapioItem[]
-}
+import Loader from '../../components/Loader'
 
 const Home = () => {
   const [foods, setFoods] = useState<Menu>()
@@ -36,7 +18,7 @@ const Home = () => {
   }, [id])
 
   if (!foods) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (

@@ -1,15 +1,4 @@
-import {
-  Card,
-  Descricao,
-  Infos,
-  Titulo,
-  Tag,
-  Espaco,
-  SaibaMais,
-  EstrelaNota,
-  HeaderBar,
-  Links
-} from './styles'
+import * as S from './styles'
 
 type Props = {
   description: string
@@ -40,29 +29,29 @@ const Product = ({
   }
 
   return (
-    <Card>
+    <S.Card>
       <img src={image} alt={title} />
-      <Infos>
-        <Tag>{infos}</Tag>
-      </Infos>
-      <Espaco>
-        <HeaderBar>
+      <S.Infos>
+        <S.Tag>{infos}</S.Tag>
+      </S.Infos>
+      <S.Espaco>
+        <S.HeaderBar>
           <div>
-            <Titulo>{title}</Titulo>
+            <S.Titulo>{title}</S.Titulo>
           </div>
-          <EstrelaNota>
+          <S.EstrelaNota>
             <div>{nota}</div>
             <img src={estrela} alt={estrela} />
-          </EstrelaNota>
-        </HeaderBar>
-        <Descricao>{getDescricao(description)}</Descricao>
-        <SaibaMais>
-          <Tag>
-            <Links to={`/perfil/${id}`}>{system}Saiba mais</Links>
-          </Tag>
-        </SaibaMais>
-      </Espaco>
-    </Card>
+          </S.EstrelaNota>
+        </S.HeaderBar>
+        <S.Descricao>{getDescricao(description)}</S.Descricao>
+        <S.SaibaMais>
+          <S.Tag>
+            <S.Links to={`/perfil/${id}`}>{system}Saiba mais</S.Links>
+          </S.Tag>
+        </S.SaibaMais>
+      </S.Espaco>
+    </S.Card>
   )
 }
 

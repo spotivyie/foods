@@ -58,6 +58,7 @@ export const Serve = styled.div`
 
 export const SaibaMais = styled.section`
   padding-bottom: 8px;
+  cursor: pointer;
 `
 //modal
 export const Modal = styled.div`
@@ -105,6 +106,7 @@ export const Cart = styled.div`
   position: relative;
   display: inline-block;
   border: none;
+  cursor: pointer;
 
   a {
     text-decoration: none;
@@ -129,6 +131,7 @@ export const Cards = styled.div`
     padding-right: 24px;
     width: 100%;
     align-items: center;
+    cursor: pointer;
   }
 
   h4,

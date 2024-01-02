@@ -1,7 +1,7 @@
-import { Container, FooterSection } from './styles'
-
 import logo from '../../assets/images/logo.png'
 import redesSociais from '../../assets/images/redessociais.png'
+
+import { Container, FooterSection } from './styles'
 
 const Footer = () => (
   <Container>

@@ -1,22 +1,11 @@
 import { useState } from 'react'
-import {
-  Card,
-  Cards,
-  Descricao,
-  Titulo,
-  Tag,
-  SaibaMais,
-  ModalContent,
-  Modal,
-  Cart,
-  Imagem,
-  Image
-} from './styles'
-
-import close from '../../assets/images/close.png'
 import { useDispatch } from 'react-redux'
+
 import { add, open } from '../../store/reducers/cart'
-import { CardapioItem } from '../../page/Perfil'
+import { CardapioItem } from '../../types'
+import close from '../../assets/images/close.png'
+
+import * as S from './styles'
 
 export type Props = {
   menu: CardapioItem
@@ -24,13 +13,14 @@ export type Props = {
 
 const ProductPerfil = ({ menu }: Props) => {
   const dispatch = useDispatch()
+  const [modalAberto, setModalEstaAberto] = useState(false)
 
   const addToCart = () => {
     dispatch(add(menu))
     dispatch(open())
+    setModalEstaAberto(false)
   }
 
-  const [modalAberto, setModalEstaAberto] = useState(false)
   const getDescricao = (descricao: string) => {
     if (descricao.length > 250) {
       return descricao.slice(0, 247) + '...'
@@ -40,19 +30,19 @@ const ProductPerfil = ({ menu }: Props) => {
 
   return (
     <>
-      <Card>
-        <Imagem src={menu.foto} alt={menu.nome} />
+      <S.Card>
+        <S.Imagem src={menu.foto} alt={menu.nome} />
         <div>
-          <Titulo>{menu.nome}</Titulo>
+          <S.Titulo>{menu.nome}</S.Titulo>
         </div>
-        <Descricao>{getDescricao(menu.descricao)}</Descricao>
-        <SaibaMais>
-          <Tag onClick={() => setModalEstaAberto(true)}>Mais detalhes</Tag>
-        </SaibaMais>
-      </Card>
-      <Modal className={modalAberto ? 'visivel' : ''}>
-        <ModalContent className="container">
-          <Cards>
+        <S.Descricao>{getDescricao(menu.descricao)}</S.Descricao>
+        <S.SaibaMais>
+          <S.Tag onClick={() => setModalEstaAberto(true)}>Mais detalhes</S.Tag>
+        </S.SaibaMais>
+      </S.Card>
+      <S.Modal className={modalAberto ? 'visivel' : ''}>
+        <S.ModalContent className="container">
+          <S.Cards>
             <header>
               <img
                 src={close}
@@ -60,24 +50,24 @@ const ProductPerfil = ({ menu }: Props) => {
                 alt="fechar"
               />
             </header>
-            <Image>
+            <S.Image>
               <img src={menu.foto} alt={menu.nome} />
-            </Image>
+            </S.Image>
             <div>
               <h4>{menu.nome}</h4>
               <p>{menu.descricao}</p>
               <p>{menu.porcao}</p>
-              <Cart onClick={addToCart}>
+              <S.Cart onClick={addToCart}>
                 Adicionar ao carrinho - R$ {menu.preco}
-              </Cart>
+              </S.Cart>
             </div>
-          </Cards>
-        </ModalContent>
+          </S.Cards>
+        </S.ModalContent>
         <div
           onClick={() => setModalEstaAberto(false)}
           className="overlay"
         ></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }
