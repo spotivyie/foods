@@ -113,7 +113,7 @@ export const Cart = styled.div`
     font-size: 14px;
   }
 
-  @media (max-width: ${breakpoints.android}) {
+  @media (max-width: ${breakpoints.tablet}) {
     text-align: center;
     display: block;
   }
@@ -157,7 +157,7 @@ export const Cards = styled.div`
     text-align: justify;
   }
 
-  @media (max-width: ${breakpoints.android}) {
+  @media (max-width: ${breakpoints.tablet}) {
     display: block;
     height: 100%;
     width: 100%;
@@ -185,7 +185,7 @@ export const Image = styled.div`
     object-fit: cover;
   }
 
-  @media (max-width: ${breakpoints.android}) {
+  @media (max-width: ${breakpoints.tablet}) {
     > img {
       padding: 0;
       width: 100%;
