@@ -7,16 +7,16 @@ export const Container = styled.section`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 26px;
   row-gap: 26px;
   padding-bottom: 80px;
 
   @media (max-width: ${breakpoints.desktop}) {
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: ${breakpoints.android}) {
+  @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
 `
